@@ -31,6 +31,8 @@ python app.py
 * Configure the wall size and bond type.
 * Pick how bricks should be placed (left-to-right or using optimized strides)
 
+Note: Wildverband patterns are implemented, but for large walls it's not guaranteed that a valid pattern can be found.
+
 <img src="screenshot-menu.png" alt="menu screenshot" width="300"/>
 
 
