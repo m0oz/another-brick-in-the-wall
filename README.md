@@ -1,8 +1,8 @@
-# Another Brick
+# 🧱 Another Brick
 
-A web app for visualizing and building brick walls.
+A web app for visualizing and building brick walls
 
-![alt text](screenshot-1.png)
+<img src="screenshot.png" alt="app screenshot" width="1000"/>
 
 ## Setup
 
@@ -30,7 +30,8 @@ python app.py
 * Open <http://localhost:8000/> in your browser.
 * Configure the wall size and bond type.
 * Pick how bricks should be placed (left-to-right or using optimized strides)
-![alt text](screenshot-0.png)
+
+<img src="screenshot-menu.png" alt="menu screenshot" width="300"/>
 
 
 ### Stride strategy
