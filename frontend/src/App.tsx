@@ -22,7 +22,6 @@ function App() {
       const res = await fetch('http://localhost:8000/api/next');
       const data = await res.json();
       setWallState(data.wall);
-      console.log(data.stride);
       setStrideState(data.stride);
     } catch (err) {
       console.error('Error fetching next brick:', err);
@@ -63,7 +62,7 @@ function App() {
       style={{
         width: `${brick.width * 1.33}rem`,
         backgroundColor: brick.placed 
-          ? `hsl(${360 - (brick.stride || 0) * 18}, 80%, 50%)`
+          ? `hsl(${360 - (brick.stride || 0) * 50}, 80%, 50%)`
           : '#e0e0e0',
       }}
     >
@@ -96,6 +95,7 @@ function App() {
                 <option value="stretcher">Stretcher</option>
                 <option value="flemish">Flemish</option>
                 <option value="english">English</option>
+                <option value="wildverband">Wildverband</option>
               </select>
             </div>
             <div>
@@ -106,9 +106,6 @@ function App() {
                 onChange={(e) => setWallConfig({...wallConfig, width: Number(e.target.value)})}
                 min="1"
               />
-              <div className="dimension-label">
-                Width [mm] {wallConfig.width * 110 - 10}
-              </div>
             </div>
             <div>
               <label>Height [Rows] </label>
@@ -118,9 +115,12 @@ function App() {
                 onChange={(e) => setWallConfig({...wallConfig, height: Number(e.target.value)})}
                 min="1"
               />
-              <div className="dimension-label">
-                Height [mm] {wallConfig.height * 62.5}
-              </div>
+            </div>
+            <div className="dimension-label">
+              Width [mm] {wallConfig.width * 110 - 10}
+            </div>
+            <div className="dimension-label">
+              Height [mm] {wallConfig.height * 62.5}
             </div>
             <button type="submit">Create Wall</button>
           </form>
@@ -152,12 +152,17 @@ function App() {
         </div>
       )}
 
-      <button 
-        className="reset-button" 
-        onClick={() => window.location.reload()}
-      >
-        Reset Wall
-      </button>
+      <div className="controls-container">
+        <span className="instruction-text">
+          Press ↵ Return to continue
+        </span>
+        <button 
+          className="reset-button" 
+          onClick={() => window.location.reload()}
+        >
+          Reset Wall
+        </button>
+      </div>
 
       {wallState?.is_complete && (
         <div className="completion-popup">

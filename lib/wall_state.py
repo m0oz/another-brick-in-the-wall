@@ -8,6 +8,7 @@ from .bonds import (
     initialize_english_bond,
     initialize_flemish_bond,
     initialize_stretcher_bond,
+    initialize_wild_bond,
 )
 
 
@@ -73,6 +74,8 @@ class WallState:
             self.bricks = initialize_flemish_bond(width_in_half_bricks, height_in_rows)
         elif bond == Bond.ENGLISH:
             self.bricks = initialize_english_bond(width_in_half_bricks, height_in_rows)
+        elif bond == Bond.WILD:
+            self.bricks = initialize_wild_bond(width_in_half_bricks, height_in_rows)
 
 
     def reset(self) -> None:

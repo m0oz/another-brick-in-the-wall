@@ -21,21 +21,6 @@ body {
     min-height: 100vh;
 }
 
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-}
-
-a:hover {
-    color: #535bf2;
-}
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -46,10 +31,6 @@ button {
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-}
-
-button:hover {
-    border-color: #646cff;
 }
 
 button:focus,
@@ -80,16 +61,30 @@ button:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 400px;
 }
 
-.dialog input {
+.dialog form>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog input,
+.dialog select {
+    width: 150px;
     padding: 5px;
-    margin-left: 10px;
+}
+
+.dimension-label {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
 }
 
 .dialog button {
     padding: 8px;
-    background: #ff2a00;
+    background: #e37246;
     color: white;
     border: none;
     border-radius: 4px;
@@ -122,17 +117,13 @@ button:focus-visible {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
         background-color: #ffffff;
-    }
-
-    a:hover {
-        color: #747bff;
     }
 
     button {
@@ -170,12 +161,22 @@ button:focus-visible {
     cursor: pointer;
 }
 
-.reset-button {
+.controls-container {
     position: fixed;
     top: 20px;
     right: 20px;
+    display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .instruction-text {
+        color: #666;
+    }
+    
+    .reset-button {
     padding: 10px 20px;
-    background-color: #ff4444;
+    background-color: #e37246;
     color: white;
     border: none;
     border-radius: 4px;
@@ -183,5 +184,5 @@ button:focus-visible {
 }
 
 .reset-button:hover {
-    background-color: #ff6666;
+    background-color: #e37246;
 }

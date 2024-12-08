@@ -46,6 +46,8 @@ class App:
                 self.wall.initialize_wall(width * BrickWidth.HALF, height, Bond.FLEMISH)
             elif bond == "english":
                 self.wall.initialize_wall(width * BrickWidth.HALF, height, Bond.ENGLISH)
+            elif bond == "wildverband":
+                self.wall.initialize_wall(width * BrickWidth.HALF, height, Bond.WILD)
             else:
                 self.wall.initialize_wall(
                     width * BrickWidth.HALF, height, Bond.STRETCHER

@@ -45,6 +45,12 @@ The strategy to find the optimal stride is implemented as a simple greedy algori
 
 ## Development
 
+The frontend is built with React and Typescript. The main file is `frontend/src/App.tsx`, and the styles are in `frontend/src/styles.css`.
+
+The backend is a simple Flask app. It uses a python lib that keeps track of the wall state and computes the optimal stride. The main files to review are `lib/bonds.py` and `lib/wall_state.py`.
+
+### Debugging
+
 Run the frontend in dev mode. This will automatically update when you save changes.
 Remove the dist folder first to ensure flask does not host the frontend
 
@@ -66,8 +72,10 @@ npm run dev
 
 Open <http://localhost:5173/> in your browser.
 
-## Testing
+### Testing
 
 ```bash
 pytest
 ```
+
+Note: test coverage is not complete, while wall state is well tested, the bond lib is not.
