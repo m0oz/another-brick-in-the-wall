@@ -1,8 +1,14 @@
-# 🧱 Another Brick
+# 🧱 Another Brick in the Wall
 
 A web app for visualizing and building brick walls
 
 <img src="screenshot.png" alt="app screenshot" width="1000"/>
+
+## Table of Contents
+- [Setup](#setup)
+- [Running](#running)
+- [Stride strategy](#stride-strategy)
+- [Development](#development)
 
 ## Setup
 
@@ -36,7 +42,7 @@ Note: Wildverband patterns are implemented, but for large walls it's not guarant
 <img src="screenshot-menu.png" alt="menu screenshot" width="300"/>
 
 
-### Stride strategy
+## Stride strategy
 
 The strategy to find the optimal stride is implemented as a simple greedy algorithm:
 
@@ -45,6 +51,16 @@ The strategy to find the optimal stride is implemented as a simple greedy algori
 1. Find the first row that misses at least one brick
 1. In that row, find the stride position that allows placing the maximum number of bricks
 1. Move to that position and repeat from 2.
+
+### Train of thought
+
+- Continuing with the lowest row that has at least one brick missing is motivated by the fact that the wall is built from bottom to top and there is no alternative to returning to that row at some point.
+- In that row, choosing the stride position that allows placing the maximum number of bricks is motivated by the fact that there is no extra cost for placing as many bricks as possible in on stride. At the same time, maximizing the number of bricks in on stride is a good proxy for minimizing the number of total strides.
+
+### Outlook
+
+- There could be strategies where choosing a stride with a smaller number of bricks is better, because it allows for more flexibility in the next row. 
+- To identify such strategies, we can experiment with look-ahead and recursive optimization. I tried a recursive approach, but within the time constraints it was not feasible to implement without running into performance issues.
 
 ## Development
 
